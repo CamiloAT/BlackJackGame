@@ -7,7 +7,6 @@ public class PlayerThread extends Thread{
 
 	private Player player;
 	private Server server;
-	private Client client;
 	private boolean flag;
 
 	public PlayerThread(Player player, Server server) {
@@ -18,9 +17,18 @@ public class PlayerThread extends Thread{
 	
 	@Override
 	public void run() {
-		this.server.sendBooleanToChange(true);
 
-	}
+		while (flag) {
+			if (server.getNumberPlayers()>=3) {
+				server.sendBooleanToChange(true);
+			}
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			
+		
+	}}}
 
 	public void setFlag(boolean flag) {
 		this.flag = flag;
