@@ -2,6 +2,7 @@ package co.edu.uptc.view;
 
 import javax.swing.JPanel;
 import java.awt.Dimension;
+import java.awt.event.ActionListener;
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
@@ -15,11 +16,11 @@ public class Menu extends JPanel{
 	private MyTextField host;
 	private MyTextField port;
 
-	public Menu() {
-		this.initComponents();
+	public Menu(ActionListener actionListener) {
+		this.initComponents(actionListener);
 	}
 	
-	private void initComponents() {
+	private void initComponents(ActionListener actionListener) {
 		setBackground(new Color(0,63,28,255));
 		setSize(new Dimension(1000, 700));
 		setLayout(null);
@@ -31,6 +32,8 @@ public class Menu extends JPanel{
 		
 		btnPlay = new ButtonRound(" JUGAR", new Color(26, 25, 61), (String) null, (Dimension) null);
 		btnPlay.setBounds(352, 586, 270, 42);
+		btnPlay.addActionListener(actionListener);
+		btnPlay.setActionCommand("Play");
 		add(btnPlay);
 		
 		namePlayer = new MyTextField();
