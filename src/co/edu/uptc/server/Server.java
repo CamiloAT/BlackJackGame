@@ -46,6 +46,7 @@ public class Server {
 				Player newPlayer = (Player)in.readObject();
 				this.aceptPlayers(newPlayer);
 			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -79,7 +80,9 @@ public class Server {
 		}
 		return flag;
 	}
-	
+	public synchronized void passShift() {
+		
+	}
 	public static void main(String[] args) {
 		new Server();
 	}

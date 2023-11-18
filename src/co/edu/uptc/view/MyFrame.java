@@ -46,5 +46,6 @@ public class MyFrame extends JFrame {
 	public int getPort() {
 		return menu.getPort();
 	}
+	
 }
 

@@ -19,9 +19,7 @@ public class PlayerThread extends Thread{
 	@Override
 	public void run() {
 		this.server.sendBooleanToChange(true);
-//		while (flag) {
-//			
-//		}
+
 	}
 
 	public void setFlag(boolean flag) {
