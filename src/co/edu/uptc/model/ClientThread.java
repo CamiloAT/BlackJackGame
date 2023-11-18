@@ -9,6 +9,7 @@ public class ClientThread extends Thread{
 	
 	public ClientThread(Client client) {
 		this.client = client;
+		this.flag = true;
 	}
 	
 	@Override

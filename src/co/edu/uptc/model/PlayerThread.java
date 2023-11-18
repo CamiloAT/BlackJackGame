@@ -19,8 +19,9 @@ public class PlayerThread extends Thread{
 	public void run() {
 
 		while (flag) {
-			if (server.getNumberPlayers()>=3) {
+			if (server.getNumberPlayers()>=1) {
 				server.sendBooleanToChange(true);
+				
 			}
 			try {
 				Thread.sleep(1000);
