@@ -12,7 +12,6 @@ import java.awt.Cursor;
 import java.awt.Dimension;
 
 public class ButtonRound extends JButton {
- 
 
 	private static final long serialVersionUID = 1L;
 
@@ -24,33 +23,30 @@ public class ButtonRound extends JButton {
 		setContentAreaFilled(false);
 		setBorder(new EmptyBorder(5, 0, 5, 0));
 		setCursor(new Cursor(Cursor.HAND_CURSOR));
-        setForeground(new Color(249,239,230,255));
-        setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 20));
+		setForeground(new Color(249,239,230,255));
+		setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 20));
 		setPreferredSize(d);
 		addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-		        setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 21));
+				setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 21));
 				setBorderPainted(true);
 
 			}
 			public void mouseExited(MouseEvent e) {
-		        setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 20));
+				setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 20));
 				setBorder(new EmptyBorder(5, 0, 5, 0));
 
 			}		
 			public void mousePressed(MouseEvent e) {
-		        setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 17));
+				setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 17));
 				setBorderPainted(true);
 			}
 			public void mouseReleased(MouseEvent e) {
 				setBorder(new EmptyBorder(5, 0, 5, 0));
-		        setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 20));
+				setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 20));
 				setBorderPainted(true);
 			}
-
-
 		});
 	}
-
 }

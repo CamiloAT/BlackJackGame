@@ -1,6 +1,5 @@
 package co.edu.uptc.view;
 
-
 import javax.swing.JPanel;
 import java.awt.Dimension;
 import java.awt.Color;
@@ -8,17 +7,21 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 
 public class Menu extends JPanel{
+
+	private static final long serialVersionUID = 1L;
 	private JLabel tittle ;
 	private ButtonRound btnPlay;
 	private MyTextField namePlayer; 
 	private MyTextField host;
 	private MyTextField port;
 
-
 	public Menu() {
+		this.initComponents();
+	}
+	
+	private void initComponents() {
 		setBackground(new Color(0,63,28,255));
-		setSize(new Dimension(1000, 700
-				));
+		setSize(new Dimension(1000, 700));
 		setLayout(null);
 		
 		tittle = new JLabel();
@@ -44,17 +47,17 @@ public class Menu extends JPanel{
 		port.setHint("        Puerto");
 		port.setBounds(352, 534, 270, 42);
 		add(port);
-	
 	}
 	
 	public String getName() {
 		return namePlayer.getText();
 	}
+	
 	public String getHost() {
 		return host.getText();
 	}
+	
 	public int getPort() {
 		return Integer.parseInt( port.getText());
 	}
-	
 }

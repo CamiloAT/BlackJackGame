@@ -6,17 +6,18 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.Shape;
 import java.awt.geom.RoundRectangle2D;
-
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.plaf.basic.BasicButtonUI;
 
-
 public class ShapedButtonUI extends BasicButtonUI{
+	
 	private Color color;
+	
 	public ShapedButtonUI(Color color) {
 		this.color= color ;
 	}
+	
 	@Override
 	public void paint(Graphics g, JComponent c) {
 		Graphics2D g2d = (Graphics2D) g;
@@ -34,6 +35,5 @@ public class ShapedButtonUI extends BasicButtonUI{
 		// Establecemos un UI espec�fico
 		
 		// A�adimos nuestros componentes
-
 	}
 }
