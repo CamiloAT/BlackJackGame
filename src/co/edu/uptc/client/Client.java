@@ -8,6 +8,7 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
+import co.edu.uptc.model.ClientThread;
 import co.edu.uptc.model.Player;
 import co.edu.uptc.view.MyFrame;
 
@@ -24,18 +25,6 @@ public class Client implements ActionListener{
 		myFrame = new MyFrame(this);
 	}
 
-	public void changeScreen() {
-		Boolean initialFlag = false;
-		try {
-			initialFlag = (Boolean)in.readObject();
-		} catch (ClassNotFoundException e) {
-
-		} catch (IOException e) {
-
-		}
-		myFrame.changeToWaitScreen(initialFlag);
-	}
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();
@@ -48,7 +37,7 @@ public class Client implements ActionListener{
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
-			this.changeScreen();
+			this.changeToWaitScreen();
 			break;
 		default:
 
@@ -56,11 +45,33 @@ public class Client implements ActionListener{
 		}
 	}
 
+	public Boolean signToChange() {
+		Boolean flag = false;
+		try {
+			flag = (Boolean) in.readObject();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return flag;
+	}
+	
+	public  void changeToWaitScreen() {
+		myFrame.showWaitPanel(this);	
+	}
+	
+	public  void changeToPlayScreen() {
+		myFrame.showWaitPanel(this);	
+	}
+	
 	public void initSocket(){
 		try {
-			socket = new Socket("localhost", 8086);
+			socket = new Socket("localhost", 8088);
 			in = new ObjectInputStream(socket.getInputStream());
 			out = new ObjectOutputStream(socket.getOutputStream());
+			Thread thread = new ClientThread(this);
+			thread.start();
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

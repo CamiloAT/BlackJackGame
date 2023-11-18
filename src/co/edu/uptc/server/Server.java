@@ -36,7 +36,7 @@ public class Server {
 
 	private void initSocket() {
 		try {
-			serverSocket = new ServerSocket(8086);
+			serverSocket = new ServerSocket(8088);
 			while (true) {
 				System.out.println("Esperando");
 				Socket playerSocket = serverSocket.accept();
@@ -57,6 +57,18 @@ public class Server {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void sendInitCards(Boolean flag) {
+		try {
+			out.writeObject(flag);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public int getNumberPlayers() {
+		return this.players.size();
 	}
 	
 	public void aceptPlayers(Player player) {
