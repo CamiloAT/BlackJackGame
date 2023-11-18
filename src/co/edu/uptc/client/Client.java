@@ -10,6 +10,7 @@ import java.net.UnknownHostException;
 
 import co.edu.uptc.model.ClientThread;
 import co.edu.uptc.model.Player;
+import co.edu.uptc.view.CardLabel;
 import co.edu.uptc.view.MyFrame;
 
 public class Client implements ActionListener{
@@ -62,7 +63,21 @@ public class Client implements ActionListener{
 	}
 	
 	public  void changeToPlayScreen() {
-		myFrame.showWaitPanel(this);	
+		myFrame.showPlayPanel(this);	
+		// this.reciveCard();
+		// this.reciveCard();
+	}
+
+	public void reciveCard(){
+		try {
+			CardLabel cardLabel = (CardLabel) in.readObject();
+			myFrame.reciveCard(cardLabel);
+
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void initSocket(){
