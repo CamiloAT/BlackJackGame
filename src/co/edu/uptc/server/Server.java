@@ -58,6 +58,16 @@ public class Server {
 			e.printStackTrace();
 		}
 	}
+
+	public void sendCards(int numbersCards){
+		try {
+			for (int i = 0; i <= numbersCards; i++) {
+				out.writeObject(deck.remove((int)(Math.random()* deck.size())));	
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 	
 	public void sendInitCards(Boolean flag) {
 		try {

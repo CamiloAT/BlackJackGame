@@ -45,8 +45,8 @@ public class MyFrame extends JFrame {
 	
 	public void showPlayPanel(ActionListener actionListener) {
 		playPanel = new PlayPanel(actionListener);
-		cardLayout.add(playPanel, "Wait");
-		card.show(cardLayout, "Wait");
+		cardLayout.add(playPanel, "Play");
+		card.show(cardLayout, "Play");
 		cardLayout.revalidate();
 		cardLayout.repaint();
 	}
@@ -58,14 +58,10 @@ public class MyFrame extends JFrame {
 		cardLayout.revalidate();
 		cardLayout.repaint();
 	}
-	
-//	public void changeToWaitScreen(Boolean flag) {
-//		if (flag) {
-//			System.out.println("ola");
-//		}else {
-//			System.out.println("noola");
-//		}
-//	}
+
+	public void reciveCard(CardLabel cardLabel){
+		playPanel.reciveCard(cardLabel);
+	}
 
 	public String getName() {
 		return menu.getName();

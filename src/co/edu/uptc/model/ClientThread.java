@@ -9,6 +9,7 @@ public class ClientThread extends Thread{
 	
 	public ClientThread(Client client) {
 		this.client = client;
+		this.flag = true;
 	}
 	
 	@Override
@@ -16,9 +17,10 @@ public class ClientThread extends Thread{
 		while (flag) {
 			if (client.signToChange()) {
 				client.changeToPlayScreen();
+				
 			}
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(100);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

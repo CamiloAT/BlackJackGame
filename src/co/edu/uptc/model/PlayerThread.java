@@ -18,10 +18,11 @@ public class PlayerThread extends Thread{
 	@Override
 	public void run() {
 		while (flag) {
-			if (server.getNumberPlayers()>=3) {
-				server.sendBooleanToChange(true);
-			}
 			try {
+				if (server.getNumberPlayers()>=1) {
+					server.sendBooleanToChange(true);
+					
+				}
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
