@@ -20,6 +20,7 @@ public class Client implements ActionListener{
 	private Socket socket;
 	private ObjectInputStream in;
 	private ObjectOutputStream out;
+	private ClientThread threadClient;
 
 
 	public Client() {
@@ -64,8 +65,13 @@ public class Client implements ActionListener{
 	
 	public  void changeToPlayScreen() {
 		myFrame.showPlayPanel(this);	
-		// this.reciveCard();
-		// this.reciveCard();
+		this.reciveCard();
+		this.reciveCard();
+		
+	}
+
+	public boolean endThreadClient(){
+		return myFrame.endThreadClient();
 	}
 
 	public void reciveCard(){
@@ -85,8 +91,8 @@ public class Client implements ActionListener{
 			socket = new Socket("localhost", 8088);
 			in = new ObjectInputStream(socket.getInputStream());
 			out = new ObjectOutputStream(socket.getOutputStream());
-			Thread thread = new ClientThread(this);
-			thread.start();
+			threadClient = new ClientThread(this);
+			threadClient.start();
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
