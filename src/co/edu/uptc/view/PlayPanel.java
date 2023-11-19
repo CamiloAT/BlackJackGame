@@ -59,4 +59,5 @@ public class PlayPanel extends JPanel{
 		Icon foodIcon = new ImageIcon("imgs/Background.png");
 		foodIcon.paintIcon(this, g, 0, 0);
 	}
+
 }

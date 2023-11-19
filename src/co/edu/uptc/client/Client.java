@@ -13,7 +13,7 @@ import co.edu.uptc.model.Player;
 import co.edu.uptc.view.CardLabel;
 import co.edu.uptc.view.MyFrame;
 
-public class Client implements ActionListener{
+public class Client implements ActionListener {
 
 	private Player player;
 	private MyFrame myFrame;
@@ -31,7 +31,7 @@ public class Client implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();
 		switch (source) {
-		case "Play": 
+		case "Play":
 			player = new Player(myFrame.getName(), myFrame.getHost(), myFrame.getPort());
 			this.initSocket();
 			try {
@@ -41,6 +41,8 @@ public class Client implements ActionListener{
 			}
 			this.changeToWaitScreen();
 			break;
+		case "Request":
+			this.reciveCard();
 		default:
 
 			break;
@@ -58,11 +60,12 @@ public class Client implements ActionListener{
 		}
 		return flag;
 	}
-	
+
 	public  void changeToWaitScreen() {
 		myFrame.showWaitPanel(this);	
 	}
 	
+
 	public  void changeToPlayScreen() {
 		myFrame.showPlayPanel(this);	
 		this.reciveCard();
@@ -71,10 +74,11 @@ public class Client implements ActionListener{
 	}
 
 	public boolean endThreadClient(){
+
 		return myFrame.endThreadClient();
 	}
 
-	public void reciveCard(){
+	public void reciveCard() {
 		try {
 			CardLabel cardLabel = (CardLabel) in.readObject();
 			myFrame.reciveCard(cardLabel);
@@ -85,8 +89,8 @@ public class Client implements ActionListener{
 			e.printStackTrace();
 		}
 	}
-	
-	public void initSocket(){
+
+	public void initSocket() {
 		try {
 			socket = new Socket("localhost", 8088);
 			in = new ObjectInputStream(socket.getInputStream());

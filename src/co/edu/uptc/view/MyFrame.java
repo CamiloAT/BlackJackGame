@@ -57,6 +57,7 @@ public class MyFrame extends JFrame {
 	}
 	
 	public void showPlayPanel(ActionListener actionListener) {
+
 		card.show(cardLayout, PLAY);
 		cardLayout.revalidate();
 		cardLayout.repaint();
@@ -69,6 +70,7 @@ public class MyFrame extends JFrame {
 		cardLayout.revalidate();
 		cardLayout.repaint();
 	}
+
 
 	public boolean endThreadClient(){
 		return flagThreadClient;
@@ -89,5 +91,5 @@ public class MyFrame extends JFrame {
 	public int getPort() {
 		return menu.getPort();
 	}
+	
 }
-
