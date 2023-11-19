@@ -19,7 +19,7 @@ public class PlayPanel extends JPanel{
 	
 	public PlayPanel(ActionListener actionListener) {
 		this.initComponents(actionListener);
-		this.xPoint = 300;
+		this.xPoint = 250;
 	}
 
 	private void initComponents(ActionListener actionListener) {
@@ -46,8 +46,8 @@ public class PlayPanel extends JPanel{
 	}
 
 	public void reciveCard(CardLabel cardLabel){
-		cardLabel.setLocation(xPoint, 550);
-		xPoint += 50;
+		cardLabel.setLocation(xPoint, 450);
+		xPoint += 60;
 		add(cardLabel);
 		repaint();
 	}

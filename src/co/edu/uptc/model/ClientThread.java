@@ -19,11 +19,15 @@ public class ClientThread extends Thread{
 				client.changeToPlayScreen();
 				
 			}
-			try {
-				Thread.sleep(100);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+
+			flag = client.endThreadClient();
+
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			
 		}
 	}
 	
