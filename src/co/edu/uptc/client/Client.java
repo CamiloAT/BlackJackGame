@@ -22,6 +22,7 @@ public class Client implements ActionListener {
 	private ObjectOutputStream out;
 	private ClientThread threadClient;
 
+
 	public Client() {
 		myFrame = new MyFrame(this);
 	}
@@ -60,9 +61,12 @@ public class Client implements ActionListener {
 		return flag;
 	}
 
-	public void changeToWaitScreen() {
-		myFrame.showWaitPanel(this);
+	public  void changeToWaitScreen() {
+		myFrame.showWaitPanel(this);	
 	}
+	
+
+	
 
 	public void changeToPlayScreen() {
 		myFrame.showPlayPanel(this);
