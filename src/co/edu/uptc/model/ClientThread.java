@@ -17,9 +17,7 @@ public class ClientThread extends Thread{
 		while (flag) {
 			if (client.signToChange()) {
 				client.changeToPlayScreen();
-				
 			}
-
 			flag = client.endThreadClient();
 
 				try {
