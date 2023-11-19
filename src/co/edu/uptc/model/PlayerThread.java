@@ -42,6 +42,15 @@ public class PlayerThread extends Thread{
 				e.printStackTrace();
 			}
 		}
+		while (flag) {
+			try {
+				
+
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 	public void setFlag(boolean flag) {

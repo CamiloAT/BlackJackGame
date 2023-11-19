@@ -57,9 +57,7 @@ public class MyFrame extends JFrame {
 	}
 	
 	public void showPlayPanel(ActionListener actionListener) {
-		playPanel = new PlayPanel(actionListener);
-		cardLayout.add(playPanel, "Play");
-		card.show(cardLayout, "Play");
+
 		card.show(cardLayout, PLAY);
 		cardLayout.revalidate();
 		cardLayout.repaint();

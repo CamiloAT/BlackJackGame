@@ -66,16 +66,15 @@ public class Client implements ActionListener {
 	}
 	
 
-	
-
-	public void changeToPlayScreen() {
-		myFrame.showPlayPanel(this);
+	public  void changeToPlayScreen() {
+		myFrame.showPlayPanel(this);	
 		this.reciveCard();
 		this.reciveCard();
-
+		
 	}
 
-	public boolean endThreadClient() {
+	public boolean endThreadClient(){
+
 		return myFrame.endThreadClient();
 	}
 
