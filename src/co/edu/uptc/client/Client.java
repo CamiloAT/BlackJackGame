@@ -14,7 +14,6 @@ import co.edu.uptc.view.CardLabel;
 import co.edu.uptc.view.MyFrame;
 
 public class Client implements ActionListener {
-
 	private Player player;
 	private MyFrame myFrame;
 	private Socket socket;
@@ -44,6 +43,8 @@ public class Client implements ActionListener {
 		case "Request":
 			this.reciveCard();
 		default:
+		case "Plant":
+			
 
 			break;
 		}
@@ -74,7 +75,6 @@ public class Client implements ActionListener {
 	}
 
 	public boolean endThreadClient(){
-
 		return myFrame.endThreadClient();
 	}
 
@@ -82,7 +82,6 @@ public class Client implements ActionListener {
 		try {
 			CardLabel cardLabel = (CardLabel) in.readObject();
 			myFrame.reciveCard(cardLabel);
-
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

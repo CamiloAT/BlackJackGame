@@ -20,7 +20,7 @@ public class Server {
 	private CardGenerator cardGenerator;
 	private ArrayList<CardLabel> deck;
 	private ArrayList<Player> players;
-	private ArrayList<Thread> playerTurn;
+	private ArrayList<PlayerThread> playerTurn;
 	private boolean playingState;
 	private int counter;
 
@@ -86,14 +86,14 @@ public class Server {
 	public void aceptPlayers(Player player) {
 		if (this.players.size()<=2&&!this.verifyName(player.getName())) {
 			players.add(player);
-			Thread thread = new PlayerThread(player, this);
-//			thread.setPriority(players.indexOf(player)+1);
-			playerTurn.add(thread);
+			PlayerThread thread = new PlayerThread(player, this);
 			thread.start();
+			playerTurn.add(thread);
 		} else {
 			System.out.println("Cliente con nombre duplicado. Conexión rechazada.");
 		}
 	}
+
 
 	private boolean verifyName(String name) {
 		boolean flag = false;
@@ -108,7 +108,20 @@ public class Server {
 	public void sendCard() throws IOException {
 		out.writeObject(deck.remove((int) (Math.random()*deck.size())));
 	}
-	public synchronized void passShift() {
+	
+	public synchronized void passShift(Player player) {
+		for (PlayerThread hilo : playerTurn) {
+			if(hilo.getPlayer().equals(player)) {
+			try {
+				hilo.wait();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}}
+			else {
+				System.out.println("porfavor espere");
+			}
+			
+		}
 		
 		
 	}
