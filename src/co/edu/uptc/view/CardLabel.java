@@ -1,8 +1,10 @@
 package co.edu.uptc.view;
 
+import java.io.Serializable;
+
 import javax.swing.JLabel;
 
-public class CardLabel extends JLabel{
+public class CardLabel extends JLabel implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private int value;

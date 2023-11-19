@@ -17,12 +17,17 @@ public class ClientThread extends Thread{
 		while (flag) {
 			if (client.signToChange()) {
 				client.changeToPlayScreen();
+				
 			}
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+
+			flag = client.endThreadClient();
+
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			
 		}
 	}
 	

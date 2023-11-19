@@ -50,7 +50,7 @@ public class WaitingRoom extends JPanel {
 		
 	    JLabel backgroundJLabel = new JLabel("");
 	    backgroundJLabel.setBounds(0, 0, 1000, 700);
-	    this.setImageLabel(backgroundJLabel, "resources/backgroundWaittingRoom.png");
+	    this.setImageLabel(backgroundJLabel, "src/resources/backgroundWaittingRoom.png");
 	    add(backgroundJLabel);
 	}
 	

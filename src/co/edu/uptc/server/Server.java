@@ -52,9 +52,20 @@ public class Server {
 		}
 	}
 	
-	public void sendBooleanToChange(Boolean flag) {
+	public void sendBooleanToChange(Boolean flag) throws InterruptedException {
 		try {
 			out.writeObject(flag);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void sendCards(int numbersCards){
+		try {
+			for (int i = 0; i <= numbersCards; i++) {
+				out.reset();
+				out.writeObject(deck.remove((int)(Math.random()* deck.size())));	
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

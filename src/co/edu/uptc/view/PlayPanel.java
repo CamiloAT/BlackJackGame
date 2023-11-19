@@ -15,9 +15,11 @@ public class PlayPanel extends JPanel{
 	private ButtonRound passButton;
 	private ButtonRound plantButton;
 	private ButtonRound requestButton;
+	private int xPoint;
 	
 	public PlayPanel(ActionListener actionListener) {
 		this.initComponents(actionListener);
+		this.xPoint = 250;
 	}
 
 	private void initComponents(ActionListener actionListener) {
@@ -41,6 +43,13 @@ public class PlayPanel extends JPanel{
 		requestButton.addActionListener(actionListener);
 		requestButton.setActionCommand("Request");
 		add(requestButton);
+	}
+
+	public void reciveCard(CardLabel cardLabel){
+		cardLabel.setLocation(xPoint, 450);
+		xPoint += 60;
+		add(cardLabel);
+		repaint();
 	}
 	
 	@Override
